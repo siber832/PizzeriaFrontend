@@ -1,0 +1,47 @@
+<div layout="row" layout-padding>
+    <div flex="30" flex-offset="35">
+        <h2>Registro Usuario</h2>
+        <form name="register_form" ng-submit="submit()">
+            <div layout="column">
+                <md-input-container>
+                    <label>Usuario</label>
+                    <input name="user" ng-model="username" required>
+                    <div ng-messages="register_form.username.$error">
+                        <div ng-message="required">Campo requerido</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Contrase&ntilde;a</label>
+                    <input type="password" name="password" ng-model="password" required>
+                    <div ng-messages="register_form.password.$error">
+                        <div ng-message="required">Campo requerido</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Nombre</label>
+                    <input type="text" name="name" ng-model="name" required>
+                    <div ng-messages="register_form.name.$error">
+                        <div ng-message="required">Campo requerido</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Apellidos</label>
+                    <input type="text" name="surname" ng-model="surname" required>
+                    <div ng-messages="register_form.surname.$error">
+                        <div ng-message="required">Campo requerido</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Email</label>
+                    <input type="text" name="email" ng-model="email" required>
+                    <div ng-messages="register_form.email.$error">
+                        <div ng-message="required">Campo requerido</div>
+                    </div>
+                </md-input-container>
+                <md-button class="md-raised md-primary" type="submit" id="submit">
+                    Acceder
+                </md-button>
+            </div>
+        </form>
+    </div>
+</div>

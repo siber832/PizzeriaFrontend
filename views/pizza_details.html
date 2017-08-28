@@ -1,0 +1,78 @@
+<md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{ pizza.Name }}</span>
+            <span class="md-subhead">&nbsp;</span>
+            <img class="p-img" ng-src="{{ pizza.Photo }}">
+            <span class="md-subhead">Precio: {{pizza.Price}}</span>
+        </md-card-title-text>
+        <md-card-title-text>
+            <span class="md-headline">INGREDIENTES</span>
+            <span class="md-subhead">&nbsp; </span>
+            <span class="md-subhead" ng-repeat="ingredient in pizza.Ingredient">{{ingredient.Name + ", precio: " + ingredient.Price  }}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-title>
+        <md-card-title-text>
+            <div class="md-media-md card-media">
+                <span class="md-headline">DEJA TU COMENTARIO</span>
+
+            </div>
+        </md-card-title-text>
+
+    </md-card-title>
+    <form ng-submit="submit()">
+    <md-card-tittle>
+        <md-card-title-text>
+            <div class="md-subhead">
+                <md-input-container felx="30">
+                    <label>Puntuacion:</label>
+                    <input required type="number" step="1" min="1" max="5" ng-model="rating" placeholder="1" />
+                    <div ng-messages="puntuacion.$error">
+                        <div ng-message="required">Campo requerido</div>
+                    </div>
+                </md-input-container>
+            </div>
+        </md-card-title-text>
+    </md-card-tittle>
+    <md-card-tittle>
+        <md-card-title-text>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="input_45">Comentario</label>
+                <div class="md-resize-wrapper">
+                    <textarea required ng-model="comment" rows="5" md-select-on-focus="" class="ng-pristine ng-valid md-input ng-not-empty ng-touched" id="input_45" aria-invalid="false" style="height: 135px;" ng-trim="false">
+                    </textarea>
+                    <div ng-messages="puntuacion.$error">
+                        <div ng-message="required">Campo requerido</div>
+                    </div>
+                </div>
+            </md-input-container>
+        </md-card-title-text>
+    </md-card-tittle>
+    <md-button class="md-raised md-primary" type="submit" id="submit">
+        Comentar
+    </md-button>
+    </form>
+    <md-card-title>
+        <md-card-title-text>
+            <div class="md-media-md card-media">
+                <span class="md-headline">COMENTARIOS</span>
+            </div>
+        </md-card-title-text>
+    </md-card-title>
+
+    <md-card-tittle ng-repeat="comment in pizza.Coment">
+        <md-card-title-text>
+            <md-card-title-text>
+                <div class="md-subhead">
+                    <label>Puntuacion: {{comment.Rating }}</label>
+                </div>
+            </md-card-title-text>
+            <md-input-container class="md-block md-input-has-value">
+                <div class="md-resize-wrapper">
+                    {{comment.Text}}
+                </div>
+            </md-input-container>
+        </md-card-title-text>
+    </md-card-tittle>
+</md-card>

@@ -1,0 +1,70 @@
+<div id="new_pizza" layout="row" layout-padding>
+    <div flex="80" flex-offset="10">
+        <h2>Nueva Pizza</h2>
+        <form name="loginForm" ng-submit="submit()" enctype='multipart/form-data'>
+            <div layout="column">
+                <md-input-container>
+                    <label>Nombre</label>
+                    <input name="nombrePizza" ng-model="nombrePizza" required>
+                    <div ng-messages="loginForm.nombrePizza.$error">
+                        <div ng-message="required">This is required!</div>
+                    </div>
+                </md-input-container>
+
+                <input type="file" id="pizza-img" ng-file-change="fileChanged($event)" onchange="angular.element(this).scope().setFile(this)" accept="image/*" required />
+
+                <div class="preview-wrapper">
+                    <img ng-src="{{image_source}}" />
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <!-- List -->
+                <md-content layout="row" ng-repeat="ingrediente in ingredientes" ng-show="ingredientes.length > 0">
+                    <md-input-container flex="50">
+                        <label>Nombre</label>
+                        <input name="ingrediente" ng-model="ingrediente.nombre" required>
+                        <div ng-messages="loginForm.ingrediente.$error">
+                            <div ng-message="required">This is required!</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex="30">
+                        <label>Precio</label>
+                        <input type="number" step="0.01" min="0" name="precio" ng-model="ingrediente.precio" placeholder="0.20" required>
+                        <div ng-messages="loginForm.ingrediente.$error">
+                            <div ng-message="required">This is required!</div>
+                        </div>
+                    </md-input-container>
+                    <md-button class="md-raised" flex="20" ng-click="deleteIngredient(ingrediente)">
+                        <md-icon md-svg-src="css/open-iconic/svg/minus.svg"></md-icon>
+                    </md-button>
+                </md-content>
+                <!-- Add -->
+                <md-content layout="row">
+                    <md-input-container flex="50">
+                        <label>{{ ingredientes.length && 'Otro ingrediente' || 'Nuevo ingrediente' }}</label>
+                        <input name="ingrediente" ng-model="nuevoIngrediente" placeholder="Queso">
+                        <div ng-messages="loginForm.ingrediente.$error">
+                            <div ng-message="required">This is required!</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex="30">
+                        <label>Precio</label>
+                        <input type="number" step="0.01" min="0" name="precio" ng-model="nuevoIngredientePrecio" placeholder="0.20">
+                        <div ng-messages="loginForm.ingrediente.$error">
+                            <div ng-message="required">This is required!</div>
+                        </div>
+                    </md-input-container>
+                    <md-button class="md-raised" flex="20" ng-click="addIngredient()">
+                        <md-icon md-svg-src="css/open-iconic/svg/plus.svg"></md-icon>
+                    </md-button>
+                </md-content>
+
+
+                <md-button class="md-raised md-primary" type="submit" id="submit">
+                    Guardar
+                </md-button>
+            </div>
+        </form>
+    </div>
+</div>

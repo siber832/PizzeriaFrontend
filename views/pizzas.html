@@ -1,0 +1,19 @@
+<div class="lista">
+    <div class="content-header">
+        <h1>Listado de pizzas</h1>
+    </div>
+
+    <div layout="row" layout-sm="column" layout-wrap layout-padding>
+        <md-card flex="100" flex-md="50" flex-lg="33" flex-xl="33" layout-fill ng-repeat="pizza in pizzas">
+            <img  ng-src="{{ trustSrc(pizza.Photo) }}" class="md-card-image" alt="{{ pizza.Name }}" />
+            <md-card-title>
+                <md-card-title-text>
+                    <span  class="md-headline"> {{ pizza.Name }}</span>
+                    <md-button ng-href="{{ '#pizza/:' + pizza.PizzaId}}">
+                        VER DETALLES
+                    </md-button>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+</div>

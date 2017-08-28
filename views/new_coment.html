@@ -1,0 +1,19 @@
+<div layout="row" layout-padding>
+    <div flex="30" flex-offset="35">
+        <h2>Acceder</h2>
+
+        <form name="loginForm" ng-submit="login()">
+            <div layout="column">
+                <md-input-container>
+                    <label>Text</label>
+                    <input name="username" ng-model="username" required>
+                    <div ng-messages="login.username.$error">
+                        <div ng-message="required">This is required!</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+
+        </form>
+    </div>
+</div>
