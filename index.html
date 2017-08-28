@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es" ng-app="Pizzeria">
+    <head>
+        <meta charset="utf-8" />
+        <title>Danny's Pizza</title>
+        <meta name="description" content="Pizzeria de Dani" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Angular Material style sheet -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" />
+
+        <!-- Main -->
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+    <body ng-cloak layout="column">
+        <md-toolbar layout="row" class="md-toolbar-tools">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" hide-gt-sm aria-label="Side menu" ng-click="toggleMenu()">
+                    <md-icon md-svg-icon="css/open-iconic/svg/menu.svg"></md-icon>
+                </md-button>
+
+                <h2 flex md-truncate>Danny's Pizza</h2>
+
+                <md-button class="login-button" ng-href="#acceder" ng-show="user === null">
+                    <md-icon md-svg-src="/danie-angular-md-pizzeria/css/open-iconic/svg/account-login.svg"></md-icon>
+                    Acceder
+                </md-button>
+                <div class="account-wrapper">
+                    <md-button ng-click="logout()" ng-show="user !== null">
+                        <span class="name">{{ user.username}}</span>
+                        <md-icon md-svg-src="/danie-angular-md-pizzeria/css/open-iconic/svg/account-logout.svg"></md-icon>
+                        Cerrar sesion
+                    </md-button>
+                </div>
+            </div>
+        </md-toolbar>
+        <div flex layout="row">
+            <md-sidenav md-is-locked-open="$mdMedia('gt-md')" md-component-id="leftMenu" md-whiteframe="8" flex="15" flex-xs="40" flex-sm="40">
+                <md-list>
+                    <md-list-item class="text-center">
+                        <a ng-href="#/">
+                            <img src="img/pizza.jpg" class="logo"/>
+                        </a>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button ng-href="#nuevo_usuario">
+                            NUEVO USUARIO
+                        </md-button>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button ng-href="#pizzas">
+                            VER PIZZAS
+                        </md-button>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button ng-href="#insertar_pizza">
+                            AÑADIR PIZZAS
+                        </md-button>
+                    </md-list-item>
+
+                </md-list>
+            </md-sidenav>
+            <md-content flex="85" flex-sm="100" layout="column" ng-view></md-content>
+        </div>
+
+        <!-- Angular Material requires Angular.app Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.min.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+        <!-- App -->
+        <script src="app/ng-filechange.js"></script>
+        <script src="app/main.js"></script>
+    </body>
+</html>
