@@ -1,0 +1,64 @@
+
+    .logo {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    .content-header {
+        width: 100%;
+        padding: 20px 50px;
+
+        background: url('../img/pizza_cheese_vegetables_meat_70134_3840x1200.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        color: #ffffff;
+    }
+
+    .preview-wrapper {
+        width: 100%;
+        height: 296px;
+
+        margin: 15px 0;
+    }
+    .p-img {
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+    }
+    .preview-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .md-toast.success .md-toast-content {
+        background-color: darkgreen;
+    }
+
+    .md-toast.error  .md-toast-content {
+        background-color: darkred;
+    }
+
+    .account-wrapper {
+
+    }
+
+    .account-wrapper .name {
+        display: inline-block;
+        padding-right: 15px;
+
+        color: white;
+    }
+    .my-custom-stars .button .material-icons {
+        font-size: 50px;
+    }
+
+    .my-custom-stars .star-button.star-on .material-icons {
+        color: #003399;
+    }
+
+    .my-custom-stars .star-button.star-off .material-icons {
+        color: #99ccff;
+    }
